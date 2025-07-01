@@ -26,6 +26,16 @@ team_members:
       - "Web Security"
       - "Penetration Test"
 
+  - name: "Kim MinChan"
+    nickname: "Predic"
+    profile_image: "https://avatars.githubusercontent.com/u/55022230?v=4"
+    description: |
+      **Kawaii Siro**
+    tags:
+      - "Web Security"
+      - "Security Researcher"
+      - "CTF Player"
+
   - name: "Do WonJune"
     nickname: "One"
     profile_image: "https://avatars.githubusercontent.com/u/117811685?v=4"
@@ -38,7 +48,7 @@ team_members:
 
   - name: "Jinwan Park"
     nickname: "goldleo1"
-    profile_image: "https://avatars.githubusercontent.com/u/117811685?v=4"
+    profile_image: "goldleo1.png"
     description: |
       **NaN**
     tags:
