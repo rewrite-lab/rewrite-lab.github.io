@@ -17,6 +17,15 @@ team_members:
       - "CTF Player"
       - "Penetration Test"
 
+  - name: "Harry Chen"
+    nickname: "icesfont"
+    profile_image: "icesfont.png"
+    description: |
+      lol
+    tags:
+      - "Web Security"
+      - "CTF Player"
+
   - name: "Pak SungHoon"
     nickname: "aestera"
     profile_image: "https://avatars.githubusercontent.com/u/117811685?v=4"
