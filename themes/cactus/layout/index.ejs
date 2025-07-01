@@ -1,74 +1,775 @@
-<section id="about" class="p-note">
-  <% if (config.description) { %>
-    <%- markdown(config.description) %>
-  <% } %>
-  <% if (theme.social_links) { %>
-    <p>
-      <%= __('index.find_me_on') %>
-      <% var nb_links = theme.social_links.length %>
-      <% var i = 0 %>
-      <% for(var {label, icon, link} of theme.social_links) { %>
-        <% var title = label || icon %>
-        <% if (icon == 'mail') { %>
-          <a class="icon u-email" target="_blank" rel="noopener" href="<%- link %>" aria-label="<%- title %>" title="<%- title %>">
-            <i class="fa-solid fa-envelope"></i><!--
-      ---></a>
+<!-- Hero Section -->
+<section id="hero" class="hero-section">
+  <div class="hero-content">
+    <% if (config.title) { %>
+    <h1 class="hero-title">
+      <span class="typing-text">Welcome to <%= config.title %></span
+      ><span class="terminal-cursor">_</span>
+    </h1>
+    <% } %> <% if (config.description) { %>
+    <div class="hero-description"><%- markdown(config.description) %></div>
+    <% } %> <% if (theme.social_links) { %>
+    <div class="hero-social">
+      <div class="social-links">
+        <% for(var {label, icon, link} of theme.social_links) { %> <% var title
+        = label || icon %> <% if (icon == 'mail') { %>
+        <a
+          class="social-icon u-email"
+          target="_blank"
+          rel="noopener"
+          href="<%- link %>"
+          aria-label="<%- title %>"
+          title="<%- title %>"
+        >
+          <i class="fa-solid fa-envelope"></i>
+        </a>
         <% } else if (icon == 'rss') { %>
-          <a class="icon" target="_blank" rel="noopener" href="<%- link %>" aria-label="<%- title %>" title="<%- title %>">
-            <i class="fa-solid fa-rss"></i>
-          </a>
+        <a
+          class="social-icon"
+          target="_blank"
+          rel="noopener"
+          href="<%- link %>"
+          aria-label="<%- title %>"
+          title="<%- title %>"
+        >
+          <i class="fa-solid fa-rss"></i>
+        </a>
         <% } else { %>
-          <a class="icon u-url" target="_blank" rel="noopener me" href="<%- url_for(link) %>" aria-label="<%- title %>" title="<%- title %>">
-            <i class="fa-brands fa-<%= icon %>"></i><!--
-      ---></a><!--
-    ---><% } %><!--
-    ---><%= ( nb_links > 0 && i < nb_links-1 ?
-            ( i == nb_links-2 ? ' '+__('index.enum_and')+' '
-            : __('index.enum_comma')+' ' )
-            : '.' ) %>
-        <% i+=1 %>
-      <% } %>
-    </p>
-  <% } %>
+        <a
+          class="social-icon u-url"
+          target="_blank"
+          rel="noopener me"
+          href="<%- url_for(link) %>"
+          aria-label="<%- title %>"
+          title="<%- title %>"
+        >
+          <i class="fa-brands fa-<%= icon %>"></i>
+        </a>
+        <% } %> <% } %>
+      </div>
+    </div>
+    <% } %>
+  </div>
 </section>
 
-<section id="writing">
-  <span class="h1"><a href="<%- url_for(theme.nav.articles) %>"><%= __('index.articles') %></a></span>
-  <% if (theme.tags_overview && site.tags.length) { %>
-  <span class="h2"><%= __('index.topics') %></span>
-  <span class="widget tagcloud">
-    <%- tagcloud(theme.tags_overview) %>
-  </span>
-  <span class="h2"><%= __('index.most_recent') %></span>
-  <% } %>
-  <ul class="post-list">
-    <% var field_sort = theme.posts_overview.sort_updated ? 'updated' : 'date' %>
-    <% if (theme.posts_overview.show_all_posts) { %>
-      <% var show_posts = page.posts.sort(field_sort, 'desc') %>
-    <% } else { %>
-      <% var show_posts = site.posts.sort(field_sort, 'desc').limit(theme.posts_overview.post_count || 5) %>
+<section id="writing" class="content-section">
+  <div class="section-header">
+    <span class="h1"
+      ><a href="<%- url_for(theme.nav.articles) %>"
+        ><%= __('index.articles') %></a
+      ></span
+    >
+    <% if (theme.tags_overview && site.tags.length) { %>
+    <div class="tags-section">
+      <span class="h2"><%= __('index.topics') %></span>
+      <span class="widget tagcloud">
+        <%- tagcloud(theme.tags_overview) %>
+      </span>
+    </div>
     <% } %>
-    <% show_posts.each(function(post, i){ %>
-      <li class="post-item">
-        <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
-        <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
-      </li>
+  </div>
+
+  <% if (theme.tags_overview && site.tags.length) { %>
+  <div class="recent-header">
+    <span class="h2"><%= __('index.most_recent') %></span>
+  </div>
+  <% } %>
+
+  <div class="posts-grid">
+    <% var field_sort = theme.posts_overview.sort_updated ? 'updated' : 'date'
+    %> <% if (theme.posts_overview.show_all_posts) { %> <% var show_posts =
+    page.posts.sort(field_sort, 'desc') %> <% } else { %> <% var show_posts =
+    site.posts.sort(field_sort, 'desc').limit(theme.posts_overview.post_count ||
+    6) %> <% } %> <% show_posts.each(function(post, i){ %>
+    <article class="post-card">
+      <div class="post-card-header">
+        <%- partial('_partial/post/date', { post: post, class_name: 'post-meta'
+        }) %>
+      </div>
+      <div class="post-card-content">
+        <h4 class="post-card-title">
+          <%- partial('_partial/post/title', { post: post, index: true,
+          class_name: '' }) %>
+        </h4>
+        <% if (post.excerpt) { %>
+        <p class="post-excerpt">
+          <%- strip_html(post.excerpt).substring(0, 150) %>...
+        </p>
+        <% } %>
+      </div>
+      <% if (post.tags && post.tags.length) { %>
+      <div class="post-tags">
+        <% post.tags.each(function(tag){ %>
+        <span class="post-tag">#<%= tag.name %></span>
+        <% }); %>
+      </div>
+      <% } %>
+    </article>
     <% }); %>
-  </ul>
+  </div>
+
   <% if (theme.posts_overview.show_all_posts) { %>
-    <%- partial('_partial/pagination') %>
+  <div class="pagination-wrapper"><%- partial('_partial/pagination') %></div>
   <% } %>
 </section>
 
 <% if (site.data.projects) { %>
-<section id="projects">
-  <span class="h1"><a href="<%- url_for(theme.projects_url) %>"><%= __('index.projects') %></a></span>
-  <ul class="project-list">
+<section id="projects" class="content-section">
+  <div class="section-header">
+    <span class="h1"
+      ><a href="<%- url_for(theme.projects_url) %>"
+        ><%= __('index.projects') %></a
+      ></span
+    >
+  </div>
+  <div class="projects-grid">
     <% for(var obj in site.data.projects){ %>
-      <li class="project-item">
-        <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %>
-      </li>
+    <div class="project-card">
+      <div class="project-header">
+        <h3 class="project-title">
+          <a
+            href="<%= site.data.projects[obj].url %>"
+            target="_blank"
+            rel="noopener"
+          >
+            <%= site.data.projects[obj].name %>
+            <i class="fa-solid fa-external-link"></i>
+          </a>
+        </h3>
+      </div>
+      <div class="project-description">
+        <%- markdown(site.data.projects[obj].desc) %>
+      </div>
+      <% if (site.data.projects[obj].tech) { %>
+      <div class="project-tech">
+        <% site.data.projects[obj].tech.forEach(function(tech) { %>
+        <span class="tech-tag"><%= tech %></span>
+        <% }) %>
+      </div>
+      <% } %>
+    </div>
     <% } %>
-  </ul>
+  </div>
 </section>
 <% } %>
+
+<style>
+  /* Hero Section - Hacker Terminal Style */
+  .hero-section {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid #105a23;
+    border-radius: 8px;
+    padding: 2.5rem 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+  }
+
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0, 255, 65, 0.03) 50%,
+        transparent 100%
+      ),
+      radial-gradient(
+        circle at 30% 70%,
+        rgba(0, 255, 65, 0.05) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 70% 30%,
+        rgba(0, 255, 255, 0.03) 0%,
+        transparent 50%
+      );
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #00ff41;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    font-family: "Courier New", monospace;
+    position: relative;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Perfect Typing Effect */
+  .typing-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    max-width: fit-content;
+    border-right: 2px solid #00ff41;
+    animation: typing 2.5s steps(30) 0s forwards, cursor-blink 1s 2.5s infinite,
+      glow 2s ease-in-out 2.5s infinite alternate;
+  }
+
+  /* Responsive sizing */
+  @media (max-width: 767px) {
+    .hero-title {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 1.5rem;
+    }
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 30ch;
+    }
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    }
+    to {
+      text-shadow: 0 0 20px rgba(0, 255, 65, 0.8),
+        0 0 30px rgba(0, 255, 65, 0.3);
+    }
+  }
+
+  /* Hide separate cursor */
+  .terminal-cursor {
+    display: none;
+  }
+
+  @keyframes cursor-blink {
+    0%,
+    50% {
+      border-right-color: #00ff41;
+    }
+    51%,
+    100% {
+      border-right-color: transparent;
+    }
+  }
+
+  .hero-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #a0a0a0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-description strong {
+    color: #00ff41;
+  }
+
+  .hero-social {
+    margin-top: 2rem;
+  }
+
+  .social-intro {
+    margin-bottom: 1rem;
+    color: #a0a0a0;
+    font-family: "Courier New", monospace;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+  }
+
+  .social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+    background: rgba(0, 255, 65, 0.1);
+    color: #ffffff;
+  }
+
+  /* Content Sections */
+  .content-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header .h1 a {
+    color: #00ff41;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+    font-family: "Courier New", monospace;
+  }
+
+  .tags-section {
+    margin: 0.8rem 0 1.5rem 0;
+  }
+
+  .recent-header {
+    margin-bottom: 1rem;
+  }
+
+  .recent-header .h2 {
+    color: #00ffff;
+    font-family: "Courier New", monospace;
+  }
+
+  /* Posts Grid - Single column */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .post-card {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(16, 90, 35, 0.4);
+    border-radius: 6px;
+    padding: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(3px);
+  }
+
+  /* Hacker card effects */
+  .post-card::before {
+    content: "[POST]";
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 0.6rem;
+    color: rgba(0, 255, 65, 0.8);
+    font-family: "Courier New", monospace;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+  }
+
+  .post-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(16, 90, 35, 0.02) 100%
+      ),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 4px,
+        rgba(0, 255, 65, 0.01) 4px,
+        rgba(0, 255, 65, 0.01) 5px
+      );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(16, 90, 35, 0.3), 0 0 20px rgba(0, 255, 65, 0.1);
+    border-color: rgba(0, 255, 65, 0.8);
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .post-card:hover::before {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+  }
+
+  .post-card:hover::after {
+    opacity: 1;
+  }
+
+  .post-card-header {
+    margin-bottom: 0.8rem;
+  }
+
+  .post-meta {
+    color: #00ffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: "Courier New", monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+  }
+
+  .post-card-title {
+    margin: 0.3rem 0 0.8rem 0;
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .post-card-title a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+
+  .post-card-title a:hover {
+    color: #00ff41;
+    text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+  }
+
+  .post-excerpt {
+    color: #c0c0c0;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .post-tag {
+    background: rgba(0, 255, 65, 0.1);
+    color: #00ff41;
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: "Courier New", monospace;
+  }
+
+  /* Projects Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  @media (min-width: 1200px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .project-card {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(3px);
+  }
+
+  .project-card::before {
+    content: "[PROJ]";
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 0.6rem;
+    color: rgba(0, 255, 255, 0.8);
+    font-family: "Courier New", monospace;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+  }
+
+  .project-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(0, 255, 255, 0.02) 100%
+      ),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(0, 255, 255, 0.01) 8px,
+        rgba(0, 255, 255, 0.01) 9px
+      );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3),
+      0 0 20px rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .project-card:hover::before {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+  }
+
+  .project-card:hover::after {
+    opacity: 1;
+  }
+
+  .project-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+  }
+
+  .project-title a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .project-title a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+  }
+
+  .project-title i {
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  .project-description {
+    color: #c0c0c0;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tech-tag {
+    background: rgba(0, 255, 255, 0.1);
+    color: #00ffff;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: "Courier New", monospace;
+  }
+
+  .pagination-wrapper {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  /* Terminal-style scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 65, 0.4);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 65, 0.6);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 767px) {
+    .hero-section {
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+    }
+
+    .posts-grid,
+    .projects-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1rem;
+    }
+
+    .post-card,
+    .project-card {
+      padding: 1rem;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+
+    .social-icon {
+      width: 45px;
+      height: 45px;
+      font-size: 1.1rem;
+    }
+  }
+
+  /* Hacker animations */
+  @keyframes scanline {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes matrixGlow {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes borderPulse {
+    0%,
+    100% {
+      border-color: rgba(16, 90, 35, 0.4);
+      box-shadow: 0 0 0 rgba(0, 255, 65, 0);
+    }
+    50% {
+      border-color: rgba(0, 255, 65, 0.6);
+      box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+    }
+  }
+
+  /* Enhanced card effects */
+  /* .post-card::before,
+  .project-card::before {
+    animation: matrixGlow 3s ease-in-out infinite;
+  }
+
+  .post-card:hover,
+  .project-card:hover {
+    animation: borderPulse 2s ease-in-out infinite;
+  }
+
+  .post-card:hover::before,
+  .project-card:hover::before {
+    animation: none;
+  } */
+
+  /* Terminal corner brackets */
+  .post-card:hover {
+    position: relative;
+  }
+
+  /* Binary rain effect */
+  @keyframes binaryRain {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+
+  /* Enhanced fade-in animation */
+  @keyframes fadeInUpHacker {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .post-card,
+  .project-card {
+    animation: fadeInUpHacker 0.8s ease forwards;
+  }
+
+  .post-card:nth-child(2n) {
+    animation-delay: 0.1s;
+  }
+
+  .post-card:nth-child(3n) {
+    animation-delay: 0.2s;
+  }
+
+  .project-card:nth-child(2n) {
+    animation-delay: 0.15s;
+  }
+</style>
