@@ -38,7 +38,7 @@ team_members:
 
   - name: "Do WonJune"
     nickname: "One"
-    profile_image: "https://avatars.githubusercontent.com/u/117811685?v=4"
+    profile_image: "one.png"
     description: |
       **I am newbie Forever**
     tags:
