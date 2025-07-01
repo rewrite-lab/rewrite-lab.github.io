@@ -64,6 +64,9 @@ jobs:
           npx hexo list themes
           npx hexo generate
 
+      - name: Create CNAME file for custom domain
+        run: echo "research.rewritelab.org" > ./public/CNAME
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
