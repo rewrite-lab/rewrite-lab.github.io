@@ -36,6 +36,15 @@ team_members:
       - "Penetration Tester"
       - "CTF Player"
 
+  - name: "Esteban Tonglet"
+    nickname: "Zerotistic"
+    profile_image: "zerotistic.png"
+    description: |
+      I do things and sometime they work
+    tags:
+      - "Security Researcher"
+      - "CTF"
+
   - name: "Baek BuSeung"
     nickname: "TCP/IP"
     profile_image: "https://tistory1.daumcdn.net/tistory/6784335/attach/4387a073689d4abeb1e8ffe848296151"
