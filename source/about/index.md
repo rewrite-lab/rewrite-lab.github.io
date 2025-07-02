@@ -26,14 +26,24 @@ team_members:
       - "Web Security"
       - "CTF Player"
 
-  - name: "Pak SungHoon"
-    nickname: "aestera"
-    profile_image: "https://avatars.githubusercontent.com/u/117811685?v=4"
+  - name: "Do WonJune"
+    nickname: "One"
+    profile_image: "one.png"
     description: |
-      **Trying to do better**
+      **I am newbie Forever**
     tags:
       - "Web Security"
-      - "Penetration Test"
+      - "Penetration Tester"
+      - "CTF Player"
+
+  - name: "Baek BuSeung"
+    nickname: "TCP/IP"
+    profile_image: "https://tistory1.daumcdn.net/tistory/6784335/attach/4387a073689d4abeb1e8ffe848296151"
+    description: |
+      hi
+    tags:
+      - "Web Security"
+      - "CTF Player"
 
   - name: "Kim MinChan"
     nickname: "Predic"
@@ -45,15 +55,14 @@ team_members:
       - "Security Researcher"
       - "CTF Player"
 
-  - name: "Do WonJune"
-    nickname: "One"
-    profile_image: "one.png"
+  - name: "Pak SungHoon"
+    nickname: "aestera"
+    profile_image: "https://avatars.githubusercontent.com/u/117811685?v=4"
     description: |
-      **I am newbie Forever**
+      **Trying to do better**
     tags:
       - "Web Security"
-      - "Penetration Tester"
-      - "CTF Player"
+      - "Penetration Test"
 
   - name: "Jinwan Park"
     nickname: "goldleo1"
