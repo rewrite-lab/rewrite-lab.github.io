@@ -45,6 +45,14 @@ team_members:
       - "Security Researcher"
       - "CTF"
 
+  - name: "Ian Kim"
+    nickname: "iank"
+    profile_image: "https://avatars.githubusercontent.com/u/60457296?v=4"
+    description: |
+      meow meow.. meow?
+    tags:
+      - "CTF Player"
+
   - name: "Baek BuSeung"
     nickname: "TCP/IP"
     profile_image: "https://tistory1.daumcdn.net/tistory/6784335/attach/4387a073689d4abeb1e8ffe848296151"
