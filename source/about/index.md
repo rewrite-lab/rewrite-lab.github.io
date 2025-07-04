@@ -53,6 +53,16 @@ team_members:
     tags:
       - "CTF Player"
 
+  - name: "Kim MinChan"
+    nickname: "Predic"
+    profile_image: "https://avatars.githubusercontent.com/u/55022230?v=4"
+    description: |
+      **Kawaii Shiro**
+    tags:
+      - "Web Security"
+      - "Security Researcher"
+      - "CTF Player"
+
   - name: "Baek BuSeung"
     nickname: "TCP/IP"
     profile_image: "https://tistory1.daumcdn.net/tistory/6784335/attach/4387a073689d4abeb1e8ffe848296151"
@@ -62,15 +72,15 @@ team_members:
       - "Web Security"
       - "CTF Player"
 
-  - name: "Kim MinChan"
-    nickname: "Predic"
-    profile_image: "https://avatars.githubusercontent.com/u/55022230?v=4"
+  - name: "Kim MinUk"
+    nickname: "me2nuk"
+    profile_image: "me2nuk.png"
     description: |
-      **Kawaii Siro**
+      ctf player and ai(llm) security researcher
     tags:
-      - "Web Security"
       - "Security Researcher"
       - "CTF Player"
+      - "LLM Security"
 
   - name: "Pak SungHoon"
     nickname: "aestera"
