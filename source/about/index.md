@@ -109,6 +109,44 @@ team_members:
       - "Researcher"
       - "CTF Player"
 
+  - name: "Dong Han Kim"
+    nickname: "secu23"
+    profile_image: "secu23.png"
+    description: |
+      **NaN**
+    tags:
+      - "Web Security"
+      - "CTF Player"
+
+  - name: "Kabilan S"
+    nickname: "Game0v3r"
+    profile_image: "https://dk2dv4ezy246u.cloudfront.net/widgets/sS0Tz7iyNkB_large.jpg"
+    description: |
+      **நான் வீழ்வேனென்று நினைத்தாயோ?**
+    tags:
+      - "Web Security"
+      - "CTF"
+
+  - name: "Abdelhameed Ghazy"
+    nickname: "abdoghazy"
+    profile_image: "https://avatars.githubusercontent.com/u/64314534?v=4"
+    description: |
+      **yet another web security artist**
+    tags:
+      - "Web Security"
+      - "Researcher"
+      - "CTF"
+
+  - name: "Anshul Gupta"
+    nickname: "j4ck4l"
+    profile_image: "https://avatars.githubusercontent.com/u/117383260?v=4"
+    description: |
+      **Just a rookie with admin ambitions.**
+    tags:
+      - "Web Security"
+      - "AI Security"
+      - "CTF"
+
 achievements:
   - year: 2025
     title: "Midnight Flag CTF 1st"
