@@ -2,6 +2,14 @@
 title: "[ENG] Advanced XSLeaks Research: Comprehensive Analysis of Browser-Based Information Disclosure Techniques — Part 0"
 date: 2025-07-28 23:53:39
 tags:
+  - Research
+  - XSLeaks
+  - CTF
+  - Case-Study
+  - CVE
+  - English
+  - Security
+  - Web
 language: en
 ---
 

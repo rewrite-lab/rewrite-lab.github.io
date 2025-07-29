@@ -2,6 +2,14 @@
 title: "[KR] Advanced XSLeaks Research: Comprehensive Analysis of Browser-Based Information Disclosure Techniques — Part 3"
 date: 2025-07-28 23:53:45
 tags:
+  - Research
+  - XSLeaks
+  - CTF
+  - Case-Study
+  - CVE
+  - Korean
+  - Security
+  - Web
 language: kr
 ---
 
