@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Block access to admin and config files
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /package*.json
+Disallow: /_config.yml
+
+# Allow access to all content and images
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /lib/
+
+# Sitemap location
+Sitemap: https://research.rewritelab.org/sitemap.xml
+
+# Common bot directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: / 
