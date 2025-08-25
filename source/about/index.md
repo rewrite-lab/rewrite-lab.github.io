@@ -36,6 +36,16 @@ team_members:
       - "Penetration Tester"
       - "CTF Player"
 
+  - name: "Godson Bastin"
+    nickname: "0xgodson"
+    profile_image: "https://avatars.githubusercontent.com/u/92250977?v=4"
+    description: |
+      **NaN**
+    tags:
+      - "Web Security"
+      - "CTF"
+      - "Researcher"
+
   - name: "Esteban Tonglet"
     nickname: "Zerotistic"
     profile_image: "zerotistic.png"
