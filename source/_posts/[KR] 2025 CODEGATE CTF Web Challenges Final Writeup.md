@@ -1,6 +1,6 @@
 ---
 title: "[KR] 2025 CODEGATE CTF Web Challenges Final Writeup"
-date: 2025-08-25 23:53:39
+date: 2025-08-25 19:53:39
 tags:
   - Writeup
   - CTF
