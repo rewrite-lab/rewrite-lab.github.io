@@ -30,7 +30,7 @@ The list of challenges is as follows:
 - chachadotcom (common challenge for both divisions)
 - gravelbox
 
-For each challenge, this write-up will cover the vulnerability analysis and exploitation process step-by-step. In particular, it will explain in detail how various techniques—such as **SSTI Bypass**, **DOMPurify Bypass**, **Node.js ROP**, and **open_basedir bypass wiih Race Condition** —were utilized in the actual problems.
+For each challenge, this write-up will cover the vulnerability analysis and exploitation process step-by-step. In particular, it will explain in detail how various techniques—such as **SSTI Bypass**, **DOMPurify Bypass**, **Node.js ROP**, and **open_basedir bypass with Race Condition** —were utilized in the actual problems.
 
 # [WEB] Censored Board
 
