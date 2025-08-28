@@ -11,7 +11,7 @@ tags:
   - Security
   - Web
 language: kr
-thumbnail: "/images/thumbnail/xsleaks_advance_research.png"
+thumbnail: "/images/thumbnail/xsleaks_advance_research_part_1.png"
 copyright: "© 2025 HSPACE (이 문서의 소재에 한하여), Author : Rewrite Lab (김민찬)"
 ---
 
