@@ -11,6 +11,7 @@ tags:
   - Security
   - Web
 language: en
+thumbnail: "/images/thumbnail/xsleaks_advance_research.png"
 copyright: |
   © 2025 HSPACE (References) Author: Rewrite Lab
   This copyright applies to this document only.
