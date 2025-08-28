@@ -11,6 +11,9 @@ tags:
   - Security
   - Web
 language: en
+copyright: |
+  © 2025 HSPACE (References) Author: Rewrite Lab
+  This copyright applies to this document only.
 ---
 
 ## What is XSLeaks

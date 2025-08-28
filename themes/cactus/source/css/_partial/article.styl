@@ -1,4 +1,7 @@
 article
+  max-width: 50rem
+  margin: 0 auto
+
   header
     .posttitle
       margin-top: 0
@@ -128,6 +131,11 @@ article
   .category-link
     underline(10px, $color-link)
 
+@media (max-width: 768px)
+  article
+    max-width: none
+    padding: 0 1rem
+
 @media (min-width: 480px)
   .article-tag,
   .article-category
@@ -135,3 +143,25 @@ article
 
     &:before
       content: "|"
+
+// Post footer styles
+.post-footer
+  margin-top: 3rem
+  padding-top: 1.5rem
+  border-top: 1px solid $color-border
+
+  .post-copyright
+    color: $color-meta
+    font-size: 0.85rem
+    line-height: 1.6
+    text-align: center
+    
+    p
+      margin: 0.5rem 0
+    
+    a
+      color: $color-link
+      text-decoration: none
+      
+      &:hover
+        text-decoration: underline

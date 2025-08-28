@@ -11,6 +11,9 @@ tags:
   - Security
   - Web
 language: en
+copyright: |
+  © 2025 HSPACE (References) Author: Rewrite Lab (정건우)
+  This copyright applies to this document only.
 ---
 
 ## TL;DR

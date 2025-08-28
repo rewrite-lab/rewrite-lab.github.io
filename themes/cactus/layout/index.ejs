@@ -92,28 +92,44 @@
     site.posts.sort(field_sort, 'desc').limit(theme.posts_overview.post_count ||
     6) %> <% } %> <% show_posts.each(function(post, i){ %>
     <article class="post-card" data-language="<%= post.language || 'en' %>">
-      <div class="post-card-header">
-        <%- partial('_partial/post/date', { post: post, class_name: 'post-meta'
-        }) %>
-      </div>
-      <div class="post-card-content">
-        <h4 class="post-card-title">
-          <%- partial('_partial/post/title', { post: post, index: true,
-          class_name: '' }) %>
-        </h4>
-        <% if (post.excerpt) { %>
-        <p class="post-excerpt">
-          <%- strip_html(post.excerpt).substring(0, 150) %>...
-        </p>
+      <div class="post-card-thumbnail">
+        <% if (post.thumbnail) { %>
+        <img
+          src="<%- post.thumbnail %>"
+          alt="<%= post.title %>"
+          loading="lazy"
+        />
+        <% } else { %>
+        <div class="default-thumbnail">
+          <div class="thumbnail-icon">📄</div>
+          <div class="thumbnail-text">Article</div>
+        </div>
         <% } %>
       </div>
-      <% if (post.tags && post.tags.length) { %>
-      <div class="post-tags">
-        <% post.tags.each(function(tag){ %>
-        <span class="post-tag">#<%= tag.name %></span>
-        <% }); %>
+      <div class="post-card-body">
+        <div class="post-card-header">
+          <%- partial('_partial/post/date', { post: post, class_name:
+          'post-meta' }) %>
+        </div>
+        <div class="post-card-content">
+          <h4 class="post-card-title">
+            <%- partial('_partial/post/title', { post: post, index: true,
+            class_name: '' }) %>
+          </h4>
+          <% if (post.excerpt) { %>
+          <p class="post-excerpt">
+            <%- strip_html(post.excerpt).substring(0, 120) %>...
+          </p>
+          <% } %>
+        </div>
+        <% if (post.tags && post.tags.length) { %>
+        <div class="post-tags">
+          <% post.tags.each(function(tag){ %>
+          <span class="post-tag">#<%= tag.name %></span>
+          <% }); %>
+        </div>
+        <% } %>
       </div>
-      <% } %>
     </article>
     <% }); %>
   </div>
@@ -362,23 +378,88 @@
     font-family: "Courier New", monospace;
   }
 
-  /* Posts Grid - Single column */
+  /* Posts Grid - Responsive */
   .posts-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
-    margin: 1.5rem 0;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .posts-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .posts-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .post-card {
     background: rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(16, 90, 35, 0.4);
-    border-radius: 6px;
-    padding: 1.2rem;
+    border-radius: 8px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(3px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .post-card-thumbnail {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .post-card-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  /* .post-card:hover .post-card-thumbnail img {
+    transform: scale(1.05);
+  } */
+
+  .default-thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: rgba(0, 255, 65, 0.6);
+  }
+
+  .thumbnail-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .thumbnail-text {
+    font-size: 0.9rem;
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .post-card-body {
+    padding: 1.2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   /* Hacker card effects */
@@ -441,22 +522,30 @@
 
   .post-meta {
     color: #00ffff;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
     font-family: "Courier New", monospace;
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
   }
 
+  .post-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
   .post-card-title {
     margin: 0.3rem 0 0.8rem 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.4;
+    flex: 1;
   }
 
   .post-card-title a {
     text-decoration: none;
     color: #ffffff;
     transition: all 0.3s ease;
+    display: block;
   }
 
   .post-card-title a:hover {
@@ -466,16 +555,17 @@
 
   .post-excerpt {
     color: #c0c0c0;
-    line-height: 1.6;
-    margin-bottom: 0.8rem;
-    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    flex: 1;
   }
 
   .post-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.8rem;
+    gap: 0.4rem;
+    margin-top: auto;
   }
 
   .post-tag {

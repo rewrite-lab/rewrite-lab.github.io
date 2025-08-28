@@ -40,11 +40,21 @@ team_members:
     nickname: "0xgodson"
     profile_image: "https://avatars.githubusercontent.com/u/92250977?v=4"
     description: |
-      **NaN**
+      Exploit Smith
     tags:
       - "Web Security"
       - "CTF"
       - "Researcher"
+
+  - name: "luv"
+    nickname: "biluv"
+    profile_image: "https://r2.etty.dev/bb.jpg"
+    description: |
+      with ripe mango box.
+    tags:
+      - "Web Security"
+      - "Reverse Engineering"
+      - "CTF Player"
 
   - name: "Esteban Tonglet"
     nickname: "Zerotistic"
