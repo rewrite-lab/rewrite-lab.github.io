@@ -92,14 +92,6 @@ team_members:
       - "Web Security"
       - "CTF Player"
 
-  - name: "sh"
-    nickname: "hackintoanetwork"
-    profile_image: "https://avatars.githubusercontent.com/u/83481196?v=4"
-    description: |
-      **awawa**
-    tags:
-      - "Web Exploitation"
-
   - name: "Kim MinUk"
     nickname: "me2nuk"
     profile_image: "me2nuk.png"
