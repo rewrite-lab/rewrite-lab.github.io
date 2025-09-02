@@ -121,13 +121,30 @@
   #toc
     position: fixed
     top: 8rem
-    left: 2rem
+    left: clamp(4rem, 6vw, 8rem) // Move TOC container much further to the right
     overflow: auto
-    padding: 1rem 1rem 1rem 2rem
-    max-width: 24em
+    padding: clamp(0.3rem, 0.5vw, 0.8rem) clamp(0.4rem, 0.6vw, 1rem) clamp(0.4rem, 0.6vw, 1rem) clamp(0.2rem, 0.3vw, 0.5rem) // Responsive padding
+    max-width: clamp(16rem, 18vw, 22rem) // Responsive width that scales with viewport
     max-height: calc(95vh - 10rem)
     text-align: left
     z-index: 99
+    background: rgba($color-background, 0.95)
+    border: 1px solid $color-border
+    border-radius: clamp(6px, 0.5vw, 12px) // Responsive border radius
+    backdrop-filter: blur(10px)
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
+    transition: all 0.3s ease
+
+    // Minimal list styling for readability
+    ol, ul
+      margin: 0
+      padding-left: 0.5rem // Just a tiny bit of padding
+      padding-top: 0.3rem
+      list-style: none
+
+    li
+      margin: 0
+      padding: 0
 
     a:hover
       color: $color-link
@@ -137,8 +154,9 @@
 
     .toc-level-2
       color: $color-text
-      font-size: .9rem
-      line-height: 1.4
+      font-size: clamp(0.65rem, 0.75vw, 0.85rem) // Reduced font size
+      line-height: 1.3
+      margin-bottom: clamp(0.2rem, 0.3vw, 0.4rem) // Responsive margin
 
       &:before
         color: $color-accent-1
@@ -146,15 +164,17 @@
 
     .toc-level-3
       color: $color-meta
-      font-size: .8rem
-      line-height: 1.3
-      margin-left: 1rem
+      font-size: clamp(0.6rem, 0.7vw, 0.8rem) // Reduced font size
+      line-height: 1.2
+      margin-left: clamp(0.1rem, 0.2vw, 0.3rem) // Responsive indentation
+      margin-bottom: clamp(0.1rem, 0.2vw, 0.3rem) // Responsive margin
 
     .toc-level-4
       color: darken($color-meta, 10%)
-      font-size: .75rem
-      line-height: 1.3
-      margin-left: 2rem
+      font-size: clamp(0.55rem, 0.65vw, 0.75rem) // Reduced font size
+      line-height: 1.2
+      margin-left: clamp(0.2rem, 0.4vw, 0.6rem) // Responsive indentation
+      margin-bottom: clamp(0.05rem, 0.1vw, 0.2rem) // Responsive margin
 
     .toc-level-5
       display: none
@@ -178,10 +198,16 @@
     #actions
       display: none
 
-@media screen and (max-width: 1199px)
+// TOC responsive behavior: hide when it would overlap with content
+@media screen and (max-width: 1499px)
   #header-post
     #toc
-      display: none
+      display: none // Hide TOC when screen is too small to avoid overlap
+
+@media screen and (min-width: 1500px)
+  #header-post
+    #toc
+      display: block // Show TOC only when there's enough space
 
 @media screen and (min-width: 900px)
   #header-post
