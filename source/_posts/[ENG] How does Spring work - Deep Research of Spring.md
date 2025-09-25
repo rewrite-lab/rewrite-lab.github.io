@@ -6,7 +6,7 @@ tags:
   - Spring
   - Java
   - CVE
-  - Korean
+  - English
   - Security
   - Web
 language: en
