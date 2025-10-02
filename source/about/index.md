@@ -80,7 +80,7 @@ team_members:
     nickname: "0xAlessandro"
     profile_image: "https://avatars.githubusercontent.com/u/80576390?v=4"
     description: |
-      __proto__
+      \_\_proto\_\_
     tags:
       - "Web Security"
       - "CTF"
