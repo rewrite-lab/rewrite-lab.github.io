@@ -65,6 +65,26 @@ team_members:
       - "Security Researcher"
       - "CTF"
 
+  - name: "Dat Phung"
+    nickname: "Dat2Phit"
+    profile_image: "dat2phit.png"
+    description: |
+      **El Psy Kongroo**
+    tags:
+      - "Web Security"
+      - "CTF Player"
+      - "Penetration Test"
+      - "Researcher"
+
+  - name: "Alessandro"
+    nickname: "0xAlessandro"
+    profile_image: "https://avatars.githubusercontent.com/u/80576390?v=4"
+    description: |
+      __proto__
+    tags:
+      - "Web Security"
+      - "CTF"
+
   - name: "Ian Kim"
     nickname: "iank"
     profile_image: "https://avatars.githubusercontent.com/u/60457296?v=4"
