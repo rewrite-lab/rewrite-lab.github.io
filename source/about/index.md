@@ -85,6 +85,16 @@ team_members:
       - "Web Security"
       - "CTF"
 
+  - name: "Minh Pham"
+    nickname: "Masamune"
+    profile_image: "https://avatars.githubusercontent.com/u/125840508?v=4"
+    description: |
+      Try Harder
+    tags:
+      - "Web Security"
+      - "CTF Player"
+      - "Penetration Test"
+
   - name: "Ian Kim"
     nickname: "iank"
     profile_image: "https://avatars.githubusercontent.com/u/60457296?v=4"
