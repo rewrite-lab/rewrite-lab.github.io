@@ -56,15 +56,6 @@ team_members:
       - "Reverse Engineering"
       - "CTF Player"
 
-  - name: "Esteban Tonglet"
-    nickname: "Zerotistic"
-    profile_image: "zerotistic.png"
-    description: |
-      I do things and sometime they work
-    tags:
-      - "Security Researcher"
-      - "CTF"
-
   - name: "Dat Phung"
     nickname: "Dat2Phit"
     profile_image: "dat2phit.png"
