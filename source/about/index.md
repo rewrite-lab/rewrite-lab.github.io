@@ -86,6 +86,39 @@ team_members:
       - "CTF Player"
       - "Penetration Test"
 
+  - name: "Elleuch"
+    nickname: "ElleuchX1"
+    profile_image: "https://pbs.twimg.com/profile_images/1939625960329924608/aQ_SG4qu_400x400.jpg"
+    description: |
+      **Caffeine abuser, sometimes finding bugs**
+    tags:
+      - "Web Security"
+      - "Research"
+      - "Penetration Test"
+      - "CTF"
+
+  - name: "irogir"
+    nickname: "irogir"
+    profile_image: "https://avatars.githubusercontent.com/u/103448522?s=40&v=4"
+    description: |
+      **occasional ctf player**
+    tags:
+      - "Web Security"
+      - "LLM Security"
+      - "CTF"
+
+  - name: "Amr Zaki"
+    nickname: "Z4ki"
+    profile_image: "https://avatars.githubusercontent.com/u/68925917?v=4"
+    description: |
+      this user is doing the best he can
+    tags:
+      - "Web Security"
+      - "CTF"
+      - "Active Directory"
+      - "Android"
+      - "Networks"
+
   - name: "Ian Kim"
     nickname: "iank"
     profile_image: "https://avatars.githubusercontent.com/u/60457296?v=4"
