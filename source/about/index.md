@@ -97,6 +97,15 @@ team_members:
       - "Penetration Test"
       - "CTF"
 
+  - name: "Mate Marjanović"
+    nickname: "sharpedged"
+    profile_image: "https://avatars.githubusercontent.com/u/48861530?s=96&v=4"
+    description: "その目、だれの目？"
+    tags:
+      - "Web Security"
+      - "Crypto"
+      - "CTF"
+
   - name: "irogir"
     nickname: "irogir"
     profile_image: "https://avatars.githubusercontent.com/u/103448522?s=40&v=4"
