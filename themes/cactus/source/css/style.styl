@@ -62,12 +62,18 @@ body
   flex-direction: column
   min-height: 100%
   overflow-wrap: break-word
+  word-wrap: break-word
+  max-width: 100%
 
   p
     hyphens(auto)
+    overflow-wrap: break-word
+    word-wrap: break-word
 
   code
     hyphens(manual)
+    overflow-wrap: break-word
+    word-wrap: break-word
 
   a
     color: $color-text
@@ -117,6 +123,17 @@ body
 .max-width
   max-width: $page-width
 
+@media (max-width: 768px)
+  // Remove max-width constraint on mobile for proper responsive behavior
+  body.max-width
+    max-width: 100% !important
+    width: 100% !important
+    overflow-x: hidden !important
+
+  html
+    max-width: 100% !important
+    overflow-x: hidden !important
+
 @media (max-width: 480px)
   // smaller margins at smaller screen widths
   .px3
@@ -157,17 +174,22 @@ pre
   font-family: $font-family-mono
   line-height: 22px
   -webkit-border-radius: 4px
+  -webkit-overflow-scrolling: touch
+  max-width: 100%
 
   code
     display: block
     padding: 0
     border: none
+    word-wrap: normal
+    white-space: pre
 
 code
   padding: 0 5px
   border: 1px dotted $color-border
   border-radius: 2px
   -webkit-border-radius: 2px
+  word-wrap: break-word
 
 .highlight
   overflow-x: auto
@@ -178,6 +200,8 @@ code
   font-family: $font-family-mono
   // color: $color-accent-3
   -webkit-border-radius: 4px
+  -webkit-overflow-scrolling: touch
+  max-width: 100%
 
   figcaption
     margin: -5px 0 5px

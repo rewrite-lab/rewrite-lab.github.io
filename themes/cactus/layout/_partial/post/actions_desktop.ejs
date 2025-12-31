@@ -1,4 +1,4 @@
-<% let tocHTML = toc(page.content) %>
+<% let tocHTML = toc(page.content, {list_number: false, min_depth: 1, max_depth: 6}) %>
 <div id="header-post">
   <a id="menu-icon" href="#" aria-label="<%- __('icons.menu') %>"
     ><i class="fa-solid fa-bars fa-lg"></i

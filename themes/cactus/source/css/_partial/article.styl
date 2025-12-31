@@ -1,6 +1,10 @@
 article
   max-width: 50rem
   margin: 0 auto
+  padding-bottom: 2rem
+  overflow-wrap: break-word
+  word-wrap: break-word
+  word-break: break-word
 
   header
     .posttitle
@@ -27,6 +31,22 @@ article
       display: inline
 
   .content
+    overflow-wrap: break-word
+    word-wrap: break-word
+    word-break: break-word
+    max-width: 100%
+
+    p, li, td, th, div
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      max-width: 100%
+
+    a
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-all
+
     h2:before
       position: absolute
       top: -4px
@@ -131,10 +151,162 @@ article
   .category-link
     underline(10px, $color-link)
 
+// Inline TOC (below post title)
+.post-toc
+  margin: 1.5rem 0 0 0  // Reduced bottom margin
+  padding: 1rem 1.5rem
+  background: rgba($color-background, 0.5)
+  border: 1px solid $color-border
+  border-radius: 8px
+
+  summary
+    cursor: pointer
+    font-weight: bold
+    font-size: 1rem
+    color: $color-accent-1
+    user-select: none
+    list-style: none
+    display: flex
+    align-items: center
+
+    &::-webkit-details-marker
+      display: none
+
+    &:before
+      content: "▶"
+      display: inline-block
+      margin-right: 0.5rem
+      transition: transform 0.2s ease
+      font-size: 0.8em
+
+  &[open] summary:before
+    transform: rotate(90deg)
+
+  .toc-content
+    margin-top: 1rem
+    padding-top: 1rem
+    border-top: 1px solid $color-border
+
+    ol, ul
+      margin: 0
+      padding-left: 0
+      list-style: none
+
+    li
+      margin: 0.3rem 0
+      line-height: 1.6
+
+    a
+      color: $color-text
+      text-decoration: none
+      transition: color 0.2s ease
+
+      &:hover
+        color: $color-link
+
+    // TOC levels
+    .toc-level-1
+      font-weight: bold
+      color: $color-accent-1
+      font-size: 0.95rem
+      margin-top: 0.8rem
+      margin-bottom: 0.4rem
+
+      &:first-child
+        margin-top: 0
+
+    .toc-level-2
+      font-size: 0.9rem
+      margin-left: 1rem
+      color: $color-text
+
+      &:before
+        content: "# "
+        color: $color-accent-1
+
+    .toc-level-3
+      font-size: 0.85rem
+      margin-left: 2rem
+      color: $color-meta
+
+    .toc-level-4
+      font-size: 0.8rem
+      margin-left: 3rem
+      color: darken($color-meta, 10%)
+
+    .toc-level-5,
+    .toc-level-6
+      display: none
+
+    .toc-number
+      display: none
+
 @media (max-width: 768px)
   article
-    max-width: none
-    padding: 0 1rem
+    max-width: none !important
+    width: 100% !important
+    padding: 0 1rem !important
+    padding-bottom: 10rem !important  // Extra bottom padding for mobile footer
+
+    .content
+      // Improve mobile readability
+      font-size: 0.95rem !important
+      line-height: 1.7 !important
+      overflow-x: hidden !important  // Prevent horizontal scroll
+      width: 100% !important
+      max-width: 100% !important
+
+      // Better code block handling on mobile
+      pre, .highlight
+        margin-left: -1rem
+        margin-right: -1rem
+        border-radius: 0
+        font-size: 0.8rem
+
+      pre code
+        font-size: 0.8rem
+
+      // Responsive tables
+      table
+        display: block
+        width: 100%
+        overflow-x: auto
+        -webkit-overflow-scrolling: touch
+
+      // Better image handling
+      img
+        max-width: 100%
+        height: auto
+
+      // Adjust heading sizes for mobile
+      h1
+        font-size: 1.6rem
+
+      h2
+        font-size: 1.4rem
+        padding-left: 0  // Remove left padding on mobile
+
+        &:before
+          position: relative  // Change from absolute to relative
+          left: 0
+          margin-right: 0.3rem
+
+      h3
+        font-size: 1.2rem
+
+      h4, h5, h6
+        font-size: 1rem
+
+@media (max-width: 480px)
+  article
+    .content
+      font-size: 0.9rem
+
+      pre, .highlight
+        font-size: 0.75rem
+
+      pre code
+        font-size: 0.75rem
 
 @media (min-width: 480px)
   .article-tag,

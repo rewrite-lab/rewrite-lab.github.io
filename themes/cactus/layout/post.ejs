@@ -23,6 +23,17 @@
       partial('_partial/post/tag') %>
     </div>
   </header>
+
+  <% let tocHTML = toc(page.content, {list_number: false, min_depth: 1, max_depth: 6}) %>
+  <% if (tocHTML !== '') { %>
+  <details class="post-toc" open>
+    <summary>Table of Contents</summary>
+    <div class="toc-content">
+      <%- tocHTML %>
+    </div>
+  </details>
+  <% } %>
+
   <%- partial('_partial/post/gallery') %>
   <div class="content e-content" itemprop="articleBody">
     <%- page.content %>
