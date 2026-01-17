@@ -106,6 +106,16 @@ team_members:
       - "Crypto"
       - "CTF"
 
+  - name: "Sofiane El Hor"
+    nickname: "22sh"
+    profile_image: "https://i.pinimg.com/736x/48/8b/52/488b52b3672d8bf1d20edf003cfa9bde.jpg"
+    description: |
+      lazy man with a busy life**
+    tags:
+      - "Web Security"
+      - "Penetration test"
+      - "web3"
+
   - name: "irogir"
     nickname: "irogir"
     profile_image: "https://avatars.githubusercontent.com/u/103448522?s=40&v=4"
