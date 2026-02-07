@@ -36,16 +36,6 @@ team_members:
       - "Penetration Tester"
       - "CTF Player"
 
-  - name: "Godson Bastin"
-    nickname: "0xgodson"
-    profile_image: "https://avatars.githubusercontent.com/u/92250977?v=4"
-    description: |
-      Exploit Smith
-    tags:
-      - "Web Security"
-      - "CTF"
-      - "Researcher"
-
   - name: "luv"
     nickname: "biluv"
     profile_image: "https://r2.etty.dev/bb.jpg"
@@ -138,14 +128,6 @@ team_members:
       - "Android"
       - "Networks"
 
-  - name: "Ian Kim"
-    nickname: "iank"
-    profile_image: "https://avatars.githubusercontent.com/u/60457296?v=4"
-    description: |
-      meow meow.. meow?
-    tags:
-      - "CTF Player"
-
   - name: "Kim MinChan"
     nickname: "Predic"
     profile_image: "https://avatars.githubusercontent.com/u/55022230?v=4"
@@ -175,16 +157,6 @@ team_members:
       - "Web Security"
       - "CTF Player"
 
-  - name: "Kim MinUk"
-    nickname: "me2nuk"
-    profile_image: "me2nuk.png"
-    description: |
-      ctf player and ai(llm) security researcher
-    tags:
-      - "Security Researcher"
-      - "CTF Player"
-      - "LLM Security"
-
   - name: "Pak SungHoon"
     nickname: "aestera"
     profile_image: "https://avatars.githubusercontent.com/u/117811685?v=4"
@@ -213,15 +185,6 @@ team_members:
       - "Web Security"
       - "CTF Player"
 
-  - name: "Kabilan S"
-    nickname: "Game0v3r"
-    profile_image: "https://dk2dv4ezy246u.cloudfront.net/widgets/sS0Tz7iyNkB_large.jpg"
-    description: |
-      **நான் வீழ்வேனென்று நினைத்தாயோ?**
-    tags:
-      - "Web Security"
-      - "CTF"
-
   - name: "Abdelhameed Ghazy"
     nickname: "abdoghazy"
     profile_image: "https://avatars.githubusercontent.com/u/64314534?v=4"
@@ -230,16 +193,6 @@ team_members:
     tags:
       - "Web Security"
       - "Researcher"
-      - "CTF"
-
-  - name: "Anshul Gupta"
-    nickname: "j4ck4l"
-    profile_image: "https://avatars.githubusercontent.com/u/117383260?v=4"
-    description: |
-      **Just a rookie with admin ambitions.**
-    tags:
-      - "Web Security"
-      - "AI Security"
       - "CTF"
 ---
 
