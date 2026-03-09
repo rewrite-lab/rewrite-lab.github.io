@@ -133,6 +133,7 @@ rss: false
 
 # Turn your web pages into graph objects (see http://ogp.me).
 open_graph:
+  twitter_card: summary_large_image
   fb_app_id:
   fb_admins:
   twitter_id:
