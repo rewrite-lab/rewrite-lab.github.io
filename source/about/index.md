@@ -106,6 +106,15 @@ team_members:
       - "Penetration test"
       - "web3"
 
+  - name: "Michael Guarino"
+    nickname: "downgrade"
+    profile_image: "https://avatars.githubusercontent.com/u/50407210?v=4"
+    description: |
+      idk, web enjoyer
+    tags:
+      - "Web Security"
+      - "CTF"
+
   - name: "irogir"
     nickname: "irogir"
     profile_image: "https://avatars.githubusercontent.com/u/103448522?s=40&v=4"
