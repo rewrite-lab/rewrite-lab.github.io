@@ -36,16 +36,6 @@ team_members:
       - "Penetration Tester"
       - "CTF Player"
 
-  - name: "luv"
-    nickname: "biluv"
-    profile_image: "https://r2.etty.dev/bb.jpg"
-    description: |
-      with ripe mango box.
-    tags:
-      - "Web Security"
-      - "Reverse Engineering"
-      - "CTF Player"
-
   - name: "Dat Phung"
     nickname: "Dat2Phit"
     profile_image: "dat2phit.png"
