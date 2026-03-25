@@ -147,6 +147,16 @@ team_members:
       - "Security Researcher"
       - "CTF Player"
 
+  - name: "Malik"
+    nickname: "m411k"
+    profile_image: "https://avatars.githubusercontent.com/u/73129654?v=4"
+    description: |
+      I profit from people's mistakes...
+    tags:
+      - "Web Security"
+      - "Browser Exploitation"
+      - "CTF"
+
   - name: "filime"
     nickname: "filime"
     profile_image: "https://avatars.githubusercontent.com/u/36452369?v=4"
