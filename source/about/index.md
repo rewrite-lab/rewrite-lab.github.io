@@ -36,6 +36,16 @@ team_members:
       - "Penetration Tester"
       - "CTF Player"
 
+  - name: "Tang Cheuk Hei"
+    nickname: "siunam"
+    profile_image: "https://avatars.githubusercontent.com/u/104430134?v=4"
+    description: |
+      <img/src/onerror=location=window.name>
+    tags:
+      - "Web Security"
+      - "Researcher"
+      - "CTF"
+
   - name: "Dat Phung"
     nickname: "Dat2Phit"
     profile_image: "dat2phit.png"
